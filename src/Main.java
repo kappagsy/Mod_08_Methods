@@ -276,4 +276,32 @@ public class Main
       return retVal;
 
     }
+
+    /**
+     *
+     * @param pipe Scanner to use for input
+     * @param prompt Message for user about what to input
+     * @return Returns the String entered by user centered in the "Pretty Header"
+     */
+    public static String prettyHeader(Scanner pipe, String prompt)
+    {
+        String retVal = "";
+        boolean done = false;
+
+        System.out.print(prompt + ": ");
+        retVal = pipe.nextLine();
+
+        for (int x=1; x<=60; x++)
+        {
+            for (int c=1; c<=2; c++)
+            {
+                System.out.print("*");
+            }
+        }
+        System.out.println();
+
+
+        return retVal;
+
+    }
 }

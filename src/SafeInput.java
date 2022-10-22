@@ -1,6 +1,71 @@
 import java.util.Scanner;
 public class SafeInput
 {
+    /**
+     *
+     * @param pipe Scanner to use for input
+     * @param prompt Message for user about what to input
+     * @return Returns the String entered by user centered in the "Pretty Header"
+     */
+    public static String prettyHeader(Scanner pipe, String prompt)
+    {
+        String retVal = "";
+        int length = retVal.length();
+        int blank = 54 - length;
+        int right = blank / 2;
+        int left = 0;
+
+        do
+        {
+            System.out.print(prompt + ": ");
+            retVal = pipe.nextLine();
+            if (retVal.length() == 0)
+            {
+                System.out.println("You must enter an input: ");
+            }
+        }while(retVal.length() == 0);
+
+        if (blank % 2 == 0)
+        {
+            left = right;
+        }
+        else
+        {
+            left = right + 1;
+        }
+
+        for (int x = 1; x <= 1; x++)
+        {
+            for (int n = 1; n <= 60; n++)
+            {
+                System.out.print("*");
+            }
+            System.out.println();
+        }
+
+        for (int x = 1; x <= 1; x++)
+        {
+            System.out.print("***");
+            for (int r = 1; r <= right; r++) {
+                System.out.print(" ");
+            }
+            System.out.print(retVal);
+            for (x = 1; x <= left; x++)
+            {
+                System.out.print(" ");
+            }
+            System.out.print("***");
+        }
+        System.out.println();
+        for (int n = 1; n <= 60; n++)
+        {
+            System.out.print("*");
+        }
+        System.out.println();
+
+        return retVal;
+    }
+
 
     public static int getInt(Scanner pipe, String prompt)
     {
@@ -215,4 +280,5 @@ public class SafeInput
 
         return retVal;
     }
+
 }

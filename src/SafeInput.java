@@ -10,14 +10,10 @@ public class SafeInput
     public static String prettyHeader(Scanner pipe, String prompt)
     {
         String retVal = "";
-        int length = retVal.length();
-        int blank = 54 - length;
-        int right = blank / 2;
-        int left = 0;
 
         do
         {
-            System.out.print(prompt + ": ");
+            System.out.print("\n" + prompt + ": ");
             retVal = pipe.nextLine();
             if (retVal.length() == 0)
             {
@@ -25,7 +21,12 @@ public class SafeInput
             }
         }while(retVal.length() == 0);
 
-        if (blank % 2 == 0)
+        int length = retVal.length();
+        int space = 54 - length;
+        int right = space / 2;
+        int left = 0;
+
+        if (space % 2 == 0)
         {
             left = right;
         }
@@ -36,33 +37,30 @@ public class SafeInput
 
         for (int x = 1; x <= 1; x++)
         {
+            for (int n = 1; n <= 60; n++) {
+                System.out.print("*");
+            }
+            System.out.println();
+
+
+            for (int n = 1; n <= 1; n++) {
+                System.out.print("***");
+                for (int r = 1; r <= right; r++) {
+                    System.out.print(" ");
+                }
+                System.out.print(retVal);
+                for (int l = 1; l <= left; l++) {
+                    System.out.print(" ");
+                }
+                System.out.print("***");
+            }
+            System.out.println();
             for (int n = 1; n <= 60; n++)
             {
                 System.out.print("*");
             }
             System.out.println();
         }
-
-        for (int x = 1; x <= 1; x++)
-        {
-            System.out.print("***");
-            for (int r = 1; r <= right; r++) {
-                System.out.print(" ");
-            }
-            System.out.print(retVal);
-            for (x = 1; x <= left; x++)
-            {
-                System.out.print(" ");
-            }
-            System.out.print("***");
-        }
-        System.out.println();
-        for (int n = 1; n <= 60; n++)
-        {
-            System.out.print("*");
-        }
-        System.out.println();
-
         return retVal;
     }
 
